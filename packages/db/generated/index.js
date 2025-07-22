@@ -156,6 +156,10 @@ const config = {
         "fromEnvVar": null,
         "value": "debian-openssl-3.0.x",
         "native": true
+      },
+      {
+        "fromEnvVar": null,
+        "value": "rhel-openssl-3.0.x"
       }
     ],
     "previewFeatures": [],
@@ -163,7 +167,7 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": null,
+    "rootEnvPath": "../.env",
     "schemaEnvPath": "../.env"
   },
   "relativePath": "../prisma",
@@ -182,8 +186,8 @@ const config = {
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"./../generated\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Category {\n  id            String        @id @default(cuid())\n  name          String\n  imageUrl      String\n  createdAt     DateTime      @default(now())\n  updatedAt     DateTime      @updatedAt\n  subCategories SubCategory[]\n}\n\nmodel SubCategory {\n  id         String   @id @default(cuid())\n  name       String\n  category   Category @relation(fields: [categoryId], references: [id])\n  categoryId String\n  createdAt  DateTime @default(now())\n  updatedAt  DateTime @updatedAt\n}\n\nmodel Product {\n  id            String   @id @default(cuid())\n  imageUrl      String\n  categoryId    String\n  subCategoryId String\n  createdAt     DateTime @default(now())\n  updatedAt     DateTime @updatedAt\n}\n",
-  "inlineSchemaHash": "3e74c6d32737acef2d94567160e4265a0ee9e258ada47ffd56b7acd09195813b",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider      = \"prisma-client-js\"\n  binaryTargets = [\"native\", \"rhel-openssl-3.0.x\"]\n  output        = \"./../generated\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Category {\n  id            String        @id @default(cuid())\n  name          String\n  imageUrl      String\n  createdAt     DateTime      @default(now())\n  updatedAt     DateTime      @updatedAt\n  subCategories SubCategory[]\n}\n\nmodel SubCategory {\n  id         String   @id @default(cuid())\n  name       String\n  category   Category @relation(fields: [categoryId], references: [id])\n  categoryId String\n  createdAt  DateTime @default(now())\n  updatedAt  DateTime @updatedAt\n}\n\nmodel Product {\n  id            String   @id @default(cuid())\n  imageUrl      String\n  categoryId    String\n  subCategoryId String\n  createdAt     DateTime @default(now())\n  updatedAt     DateTime @updatedAt\n}\n",
+  "inlineSchemaHash": "55fc8c944332c93c3e98f61ce8aec8ee7199da8aa55bdf1864f2379d8474b719",
   "copyEngine": true
 }
 
@@ -224,6 +228,10 @@ Object.assign(exports, Prisma)
 // file annotations for bundling tools to include these files
 path.join(__dirname, "libquery_engine-debian-openssl-3.0.x.so.node");
 path.join(process.cwd(), "generated/libquery_engine-debian-openssl-3.0.x.so.node")
+
+// file annotations for bundling tools to include these files
+path.join(__dirname, "libquery_engine-rhel-openssl-3.0.x.so.node");
+path.join(process.cwd(), "generated/libquery_engine-rhel-openssl-3.0.x.so.node")
 // file annotations for bundling tools to include these files
 path.join(__dirname, "schema.prisma");
 path.join(process.cwd(), "generated/schema.prisma")

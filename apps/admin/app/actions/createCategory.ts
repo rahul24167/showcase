@@ -2,8 +2,6 @@
 import { prisma } from '@repo/db';
 
 export async function createCategory(formData: FormData) {
-  // type-casting here for convenience
-  // in practice, you should validate your inputs
   const data = {
     name: formData.get("name") as string,
     imageUrl: formData.get("cover") as string,
