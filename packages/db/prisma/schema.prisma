@@ -33,6 +33,7 @@ model SubCategory {
 
 model Product {
   id            String   @id @default(cuid())
+  imageUrl      String
   categoryId    String
   subCategoryId String
   createdAt     DateTime @default(now())
