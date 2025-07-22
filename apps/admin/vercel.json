@@ -1,14 +1,7 @@
 {
   "functions": {
-    "app/**/page.js": {
-      "includeFiles": [
-        "../../packages/db/generated/**"
-      ]
-    },
-    "app/**/route.js": {
-      "includeFiles": [
-        "../../packages/db/generated/**"
-      ]
+    "app/**/*.js": {
+      "includeFiles": ["../../packages/db/generated/**"]
     }
   }
 }
