@@ -1,8 +1,9 @@
+
 "use server";
 import { prisma } from "@repo/db";
 import { Product } from "@repo/db/generated/client";
 
-export async function getProduct(id: string): Promise<Product[]> {
+export async function getProducts(id: string): Promise<Product[]> {
   try {
     if (!id) {
       return [];
@@ -13,5 +14,19 @@ export async function getProduct(id: string): Promise<Product[]> {
   } catch (error) {
     console.error("Error fetching products:", error);
     return [];
+  }
+}
+
+export async function getProduct(id: string): Promise<Product | null> {
+  try {
+    if (!id) {
+      return null;
+    }
+    return prisma.product.findUnique({
+      where: { id },
+    });
+  } catch (error) {
+    console.error("Error fetching product:", error);
+    return null;
   }
 }
