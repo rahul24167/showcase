@@ -11,6 +11,9 @@
   "author": "",
   "license": "ISC",
   "type": "module",
+  "prisma": {
+    "binaryTargets": ["native", "rhel-openssl-3.0.x"]
+  },
   "devDependencies": {
     "prisma": "^6.12.0"
   },
