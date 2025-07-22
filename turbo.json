@@ -2,7 +2,12 @@
   "$schema": "https://turborepo.com/schema.json",
   "ui": "tui",
   "globalEnv": [
-    "DATABASE_URL"
+    "DATABASE_URL",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY",
+    "NEXT_PUBLIC_SUPABASE_URL",
+    "GCP_KEY_B64",
+    "GCS_BUCKET_NAME"
+
   ],
   "tasks": {
     "build": {
