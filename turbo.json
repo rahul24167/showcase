@@ -6,8 +6,7 @@
     "NEXT_PUBLIC_SUPABASE_ANON_KEY",
     "NEXT_PUBLIC_SUPABASE_URL",
     "GCP_KEY_B64",
-    "GCS_BUCKET_NAME",
-    "NODE_ENV"
+    "GCS_BUCKET_NAME"
 
   ],
   "tasks": {
