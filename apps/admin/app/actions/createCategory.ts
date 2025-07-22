@@ -6,7 +6,7 @@ export async function createCategory(formData: FormData) {
   // in practice, you should validate your inputs
   const data = {
     name: formData.get("name") as string,
-    description: formData.get("description") as string,
+    imageUrl: formData.get("cover") as string,
   };
 
   try {
